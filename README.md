@@ -1,6 +1,5 @@
 # WebSocket chat 
 
----
 ### Run
 ~~~
 npm run dev
