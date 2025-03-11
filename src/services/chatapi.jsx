@@ -1,23 +1,13 @@
-import Axios from "axios";
-
-const api = Axios.create({
-    baseURL: '/api/',
-});
+import axios from "axios";
 
 const chatAPI = {
-    getMessages: (groupId) => {
-        console.log('Calling get messages from API');
-        return api.get(`messages/${groupId}`);
-    },
-
-    sendMessage: (username, text) => {
+    sendMessage: async (username, text) => {
         let msg = {
             sender: username,
             content: text
         }
-        return api.post(`send`, msg);
+        return await axios.post(`http://localhost:8085/api/send`, msg, {withCredentials: true});
     }
 }
-
 
 export default chatAPI;
