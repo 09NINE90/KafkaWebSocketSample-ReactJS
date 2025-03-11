@@ -26,7 +26,7 @@ const App = () => {
     let onSendMessage = (msgText) => {
         chatAPI.sendMessage(user.username, msgText).then(res => {
             console.log('Sent', res);
-        }).catch(err => {
+        }).catch(() => {
             console.log('Error Occured while sending message to api');
         })
     }
@@ -43,7 +43,7 @@ const App = () => {
 
     return (
         <div className="App">
-            {!!user ?
+            {user ?
                 (
                     <>
                         <SockJsClient
